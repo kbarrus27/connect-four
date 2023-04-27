@@ -17,9 +17,24 @@ public class Board {
         }
     }
 
+    public int getNumRows()
+    {
+        return boardList.length;
+    }
+
+    public int getNumCols()
+    {
+        return boardList[0].length;
+    }
+
     public String getStatus(int row, int column)
     {
         return boardList[row][column];
+    }
+
+    public String[][] getList()
+    {
+        return boardList;
     }
 
     public boolean setPiece(int row, int column, String piece)
@@ -27,7 +42,7 @@ public class Board {
         /* If boardList[row][column] is unoccupied, set it to the value of piece and return true.
         Otherwise, return false.
         */
-        if (!this.getStatus(row, column).equals(emptySpace)) {
+        if (this.getStatus(row, column).equals(emptySpace)) {
             boardList[row][column] = piece;
             return true;
         } else {
